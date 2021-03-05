@@ -1,0 +1,13 @@
+body {
+  background: #ebebeb;
+
+  .container-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  p {
+    color: #99999b;
+    margin-left: 10px;
+  }
+}
