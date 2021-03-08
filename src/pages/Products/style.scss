@@ -1,18 +1,20 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  margin: 0 auto 0 60px;
+  width: 1000px;
+}
 .container-products {
   background: #ebebe8;
-  height: 100vh;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+  min-height: 100%;
   .container-items {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
   }
   p {
-    padding: 15px;
     color: #b7b7b7;
   }
 }

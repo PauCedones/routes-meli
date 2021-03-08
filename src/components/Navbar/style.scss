@@ -1,3 +1,7 @@
+.wrapper {
+  margin: 0 auto 0 60px;
+  width: 1000px;
+}
 .navbar-container {
   background: #ffea54;
   display: flex;
@@ -11,34 +15,32 @@
       margin-right: 50px;
       padding: 5px;
     }
+    p {
+      font-size: 10px;
+      color: #a08815;
+      margin-left: 17rem;
+    }
     .search-wrapper {
       display: inline-flex;
       flex-flow: row nowrap;
       width: 400px;
       input {
-        background-color: #f2f2f2;
         border: none;
         font-size: 15px;
         width: 100%;
         padding: 5px;
-        input:focus {
-          outline: none;
-        }
-        textarea:focus {
+
+        input[type="text"] :focus {
           outline: none;
         }
       }
       i {
-        background-color: #f2f2f2;
+        background-color: white;
         border: none;
         border-right: 0;
         color: #777;
         padding: 5px;
       }
     }
-  }
-
-  p {
-    font-size: 10px;
   }
 }
