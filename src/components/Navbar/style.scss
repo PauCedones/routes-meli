@@ -1,0 +1,44 @@
+.navbar-container {
+  background: #ffea54;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .input-logo-container {
+    display: flex;
+    align-items: center;
+    img {
+      width: 100px;
+      margin-right: 50px;
+      padding: 5px;
+    }
+    .search-wrapper {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      width: 400px;
+      input {
+        background-color: #f2f2f2;
+        border: none;
+        font-size: 15px;
+        width: 100%;
+        padding: 5px;
+        input:focus {
+          outline: none;
+        }
+        textarea:focus {
+          outline: none;
+        }
+      }
+      i {
+        background-color: #f2f2f2;
+        border: none;
+        border-right: 0;
+        color: #777;
+        padding: 5px;
+      }
+    }
+  }
+
+  p {
+    font-size: 10px;
+  }
+}
