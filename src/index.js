@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import ProductPage from "./pages/ProductPage";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -10,6 +11,7 @@ ReactDOM.render(
   <Router>
     <Route exact path="/" component={Home} />
     <Route exact path="/products/:site" component={Products} />
+    <Route exact path="/products/:site/:product" component={ProductPage} />
   </Router>,
   document.getElementById("root")
 );

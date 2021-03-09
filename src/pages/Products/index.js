@@ -3,6 +3,7 @@ import axios from "axios";
 import ItemProduct from "../../components/ItemProduct";
 import Navbar from "../../components/Navbar";
 import "./style.scss";
+import { Link } from "react-router-dom";
 //custom hook
 import { useParams } from "react-router-dom";
 
@@ -42,11 +43,13 @@ function Products() {
               //plasmando la llamada de la api aca
               .map((item, key) => {
                 return (
-                  <ItemProduct
-                    img={item.thumbnail}
-                    price={item.price}
-                    key={item.id ? item.id : key}
-                  />
+                  <Link to={`/products/${site}/${item.id}`}>
+                    <ItemProduct
+                      img={item.thumbnail}
+                      price={item.price}
+                      key={item.id ? item.id : key}
+                    />
+                  </Link>
                 );
               })}
           </div>
