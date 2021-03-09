@@ -1,56 +1,38 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import ItemProduct from "../../components/ItemProduct";
-import Navbar from "../../components/Navbar";
-import "./style.scss";
+import React from "react";
 
-function Products() {
-  //llamada a la api
-  const [items, setItems] = useState([]);
+class Products extends React.Component {
+  //otra forma sin tener que usar constructor y super props y blah
+  //inicializacion
+  state = {
+    productsData: [],
+  };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  async function fetchData() {
-    const baseUrl = "https://api.mercadolibre.com/sites/MLA/search?q=kayak";
-    const getItems = await axios(baseUrl);
-    setItems(getItems.data.results);
+  async componentDidMount() {
+    const { site } = this.props.match.params;
+    const data = await fetch(
+      `https://api.mercadolibre.com/sites/${site}/search?q=auriculares&limit=5`
+    );
+    const json = await data.json();
+    //actualizacion
+    this.setState({
+      productsData: json.results,
+    });
   }
-  //filtrando contenido para el buscador navbar
-  const [searchParam, setSearchParam] = useState("");
-  function handleSearch(searchParam) {
-    setSearchParam(searchParam);
-  }
-
-  return (
-    <>
-      <div className="container-products ">
-        <Navbar handleCallback={handleSearch} />
-
-        <div className="wrapper">
-          <p>Basada en tu última visita</p>
-          <div className="container-items">
-            {items
-              //filtrar contenido para el buscador
-              .filter((item) => {
-                return item.title.toLowerCase().includes(searchParam);
-              })
-              //plasmando la llamada de la api aca
-              .map((item, key) => {
-                return (
-                  <ItemProduct
-                    img={item.thumbnail}
-                    price={item.price}
-                    key={item.id ? item.id : key}
-                  />
-                );
-              })}
-          </div>
-        </div>
+  render() {
+    const { productsData } = this.state;
+    return (
+      <div>
+        {productsData.map((product) => {
+          return (
+            //lectura
+            <div key={product.id}>
+              <img src={product.thumbnail} />
+              <p>{product.title}</p>
+            </div>
+          );
+        })}
       </div>
-    </>
-  );
+    );
+  }
 }
-
 export default Products;
