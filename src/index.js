@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 ReactDOM.render(
   <Router>
     <Route exact path="/" component={Home} />
-    <Route exact path="/products" component={Products} />
+    <Route exact path="/products/:site" component={Products} />
   </Router>,
   document.getElementById("root")
 );

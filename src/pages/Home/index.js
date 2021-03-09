@@ -15,7 +15,7 @@ function Home() {
           <div className="countries-container">
             {sites.map((country) => {
               return (
-                <Link to="/products">
+                <Link to={`/products/${country.site}`}>
                   <img src={country.image} />
                   {country.name}
                 </Link>

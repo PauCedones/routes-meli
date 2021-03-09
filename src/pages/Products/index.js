@@ -3,17 +3,20 @@ import axios from "axios";
 import ItemProduct from "../../components/ItemProduct";
 import Navbar from "../../components/Navbar";
 import "./style.scss";
+//custom hook
+import { useParams } from "react-router-dom";
 
 function Products() {
   //llamada a la api
   const [items, setItems] = useState([]);
+  const { site } = useParams();
 
   useEffect(() => {
     fetchData();
   }, []);
 
   async function fetchData() {
-    const baseUrl = "https://api.mercadolibre.com/sites/MLA/search?q=kayak";
+    const baseUrl = `https://api.mercadolibre.com/sites/${site}/search?q=kayak&limit=5`;
     const getItems = await axios(baseUrl);
     setItems(getItems.data.results);
   }
